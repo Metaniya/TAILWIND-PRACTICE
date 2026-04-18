@@ -1,9 +1,9 @@
-# Tailwind CSS Practice — INT-001
+# Tailwind CSS Practice 
 
 > **Module:** M2 Deep React + Styling  
 > **Task:** TailwindCSS Fundamentals  
 > **Author:** Metaniya Shiferaw  
-> **Status:** In Progress
+
 
 ---
 
@@ -86,9 +86,7 @@ When a sidebar link is clicked, JavaScript removes the `active` class from all l
 
 ---
 
-## How responsive design works
 
-Responsive design means the layout adjusts automatically based on screen width. No separate mobile version exists — it is one layout that adapts.
 
 ### In Tailwind (breakpoint prefixes)
 Tailwind uses prefixes directly on classes:
@@ -161,26 +159,4 @@ That's it. The Tailwind version loads the framework from a CDN so an internet co
 
 ---
 
-## How to push this to GitHub
 
-```bash
-# 1. Open your project folder in terminal
-cd path/to/TAILWIND-PRACTICE
-
-# 2. Initialize git
-git init
-
-# 3. Add all files
-git add .
-
-# 4. First commit
-git commit -m "feat: add tailwind and plain CSS dashboard - INT-001"
-
-# 5. Go to github.com, create a new repo called tailwind-practice
-#    then connect it:
-git remote add origin https://github.com/YOUR_USERNAME/tailwind-practice.git
-
-# 6. Push
-git branch -M main
-git push -u origin main
-```
