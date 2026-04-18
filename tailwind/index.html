@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Tailwind Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900">
+
+  <!-- nav bar-->
+  <nav class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 sticky top-0 z-10">
+    <div class="flex items-center justify-between">
+      <div class="text-xl font-bold text-purple-600">MyApp</div>
+
+      <!-- links -->
+      <ul class="hidden md:flex gap-6 list-none m-0 p-0">
+        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 text-sm font-medium no-underline">Home</a></li>
+        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 text-sm font-medium no-underline">Projects</a></li>
+        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 text-sm font-medium no-underline">About</a></li>
+      </ul>
+
+      <div class="flex items-center gap-3">
+        <button onclick="toggleDark()"
+          class="bg-purple-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-purple-700 transition-colors">
+          🌙 Dark
+        </button>
+        <!-- Hamburger -->
+        <button onclick="toggleMenu()" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+          <svg id="iconOpen" class="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="iconClose" class="w-6 h-6 text-gray-600 dark:text-gray-300 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" style="display:none;" class="md:hidden pt-4 pb-2 flex flex-col gap-2 border-t border-gray-200 dark:border-gray-700 mt-4">
+      <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 text-sm font-medium py-1">Home</a>
+      <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 text-sm font-medium py-1">Projects</a>
+      <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 text-sm font-medium py-1">About</a>
+    </div>
+  </nav>
+
+  
+  <div class="flex min-h-screen">
+
+    <aside class="hidden md:flex w-56 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 p-4 flex-col gap-1 shrink-0">
+      <p class="text-xs font-semibold text-gray-400 uppercase px-3 mb-2 tracking-wider">Menu</p>
+      <a href="#" onclick="setActive(event, this)" class="sidebar-link active-link px-3 py-2 rounded-lg text-sm">Dashboard</a>
+      <a href="#" onclick="setActive(event, this)" class="sidebar-link px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm">Projects</a>
+      <a href="#" onclick="setActive(event, this)" class="sidebar-link px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm">Settings</a>
+    </aside>
+
+    <main class="flex-1 p-6 md:p-8">
+      <h1 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Dashboard</h1>
+      <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">Welcome back, Metaniya 👋</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center shrink-0">
+              <span class="text-purple-600 font-bold text-sm">M</span>
+            </div>
+            <h3 class="font-semibold text-gray-800 dark:text-white">Abebe</h3>
+          </div>
+          <p class="text-sm text-gray-500 dark:text-gray-400">React Developer</p>
+          <span class="mt-3 inline-block bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full">Active</span>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center shrink-0">
+              <span class="text-blue-600 font-bold text-sm">Y</span>
+            </div>
+            <h3 class="font-semibold text-gray-800 dark:text-white">Kebede</h3>
+          </div>
+          <p class="text-sm text-gray-500 dark:text-gray-400">UI Designer</p>
+          <span class="mt-3 inline-block bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full">In Review</span>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center shrink-0">
+              <span class="text-amber-600 font-bold text-sm">A</span>
+            </div>
+            <h3 class="font-semibold text-gray-800 dark:text-white">Alex</h3>
+          </div>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Backend Engineer</p>
+          <span class="mt-3 inline-block bg-amber-100 text-amber-700 text-xs px-2 py-1 rounded-full">In Progress</span>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // dark modee
+    function toggleDark() {
+      document.documentElement.classList.toggle('dark')
+    }
+
+    
+    let menuOpen = false
+    function toggleMenu() {
+      menuOpen = !menuOpen
+      document.getElementById('mobileMenu').style.display = menuOpen ? 'flex' : 'none'
+      document.getElementById('iconOpen').classList.toggle('hidden', menuOpen)
+      document.getElementById('iconClose').classList.toggle('hidden', !menuOpen)
+    }
+
+    // Sidebar active state
+    function setActive(e, el) {
+      e.preventDefault()
+      document.querySelectorAll('.sidebar-link').forEach(l => {
+        l.classList.remove('bg-purple-50', 'text-purple-700', 'font-medium', 'active-link')
+        l.classList.add('text-gray-600', 'dark:text-gray-400')
+      })
+      el.classList.add('bg-purple-50', 'text-purple-700', 'font-medium', 'active-link')
+      el.classList.remove('text-gray-600')
+    }
+  </script>
+
+  <style>
+    .active-link { background-color: #f3e8ff; color: #7e22ce; font-weight: 500; }
+  </style>
+
+</body>
+</html>

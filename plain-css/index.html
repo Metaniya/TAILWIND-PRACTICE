@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-brand">MyApp</div>
+
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <button class="btn-dark" onclick="toggleDark()">🌙 Dark</button>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#">Home</a>
+      <a href="#">Projects</a>
+      <a href="#">About</a>
+    </div>
+  </nav>
+
+
+  <div class="layout">
+
+   
+    <aside>
+      <p class="sidebar-label">Menu</p>
+      <a href="#" class="sidebar-link active" onclick="setActive(event, this)">Dashboard</a>
+      <a href="#" class="sidebar-link" onclick="setActive(event, this)">Projects</a>
+      <a href="#" class="sidebar-link" onclick="setActive(event, this)">Settings</a>
+    </aside>
+
+    <!-- main content -->
+    <main>
+      <h1>Dashboard</h1>
+      <p class="subtitle">Welcome back, Metaniya 👋</p>
+
+      
+      <div class="card-grid">
+
+        <!-- card1 -->
+        <div class="card">
+          <div class="card-header">
+            <div class="avatar avatar-purple">M</div>
+            <span class="card-name">Abebe</span>
+          </div>
+          <p class="card-role">React Developer</p>
+          <span class="badge badge-green">Active</span>
+        </div>
+
+        <!-- card2 -->
+        <div class="card">
+          <div class="card-header">
+            <div class="avatar avatar-blue">Y</div>
+            <span class="card-name">Kebede</span>
+          </div>
+          <p class="card-role">UI Designer</p>
+          <span class="badge badge-blue">In Review</span>
+        </div>
+
+        <!-- card3-->
+        <div class="card">
+          <div class="card-header">
+            <div class="avatar avatar-amber">A</div>
+            <span class="card-name">Alex</span>
+          </div>
+          <p class="card-role">Backend Engineer</p>
+          <span class="badge badge-amber">In Progress</span>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // dark mode
+    function toggleDark() {
+      document.body.classList.toggle('dark');
+    }
+
+    // Toggle nav menu
+    let menuOpen = false;
+    function toggleMenu() {
+      menuOpen = !menuOpen;
+      document.getElementById('mobileMenu').classList.toggle('open', menuOpen);
+    }
+
+    // Sidebar active link
+    function setActive(e, el) {
+      e.preventDefault();
+      document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+      el.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
